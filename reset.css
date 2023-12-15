@@ -1797,3 +1797,8 @@ label form [type='radio'] {
   max-height: 50px;
 }
 
+#today {
+  border: 1px solid #000000;
+  padding: 10px;
+}
+

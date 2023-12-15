@@ -25,8 +25,9 @@ searchButton.on('click', function(event){
       .then(function (data) {
         console.log(data);
 
-        // forecast box
+        // today box
 
+        todayBox.empty();
         cityName = $('<h2>');
         cityName.text(data.city.name + '(' + date + ')');
         icon = $('<img>');
@@ -43,7 +44,7 @@ searchButton.on('click', function(event){
         cityWind1 = $('<p>');
         cityWind1.text('Wind: ' + data.list[0].wind.speed + 'KPH')
 
-        forecast.append(cityName, cityTemp1, cityWind1, cityHumid1);
+        todayBox.append(cityName, cityTemp1, cityWind1, cityHumid1);
       })
 
 })
