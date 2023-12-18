@@ -45,6 +45,25 @@ searchButton.on('click', function(event){
         cityWind1.text('Wind: ' + data.list[0].wind.speed + 'KPH')
 
         todayBox.append(cityName, cityTemp1, cityWind1, cityHumid1);
+
+        // 5 day forecast
+ 
+        dataArray = data.list;
+        console.log(dataArray)
+        
+        for (let i = 1; i < dataArray.length; i++) {
+          
+          var forecastCard = $('<div>');
+         forecastCard.addClass("card forecastCard");
+
+          var foreCastDate = $('<h5>');
+
+          foreCastDate.text('hello'); 
+          forecastCard.append(foreCastDate);
+
+          forecast.append(forecastCard);
+        }
+
       })
 
 })
@@ -72,3 +91,14 @@ searchButton.on('click', function(event){
 
 // When a user click on a city in the search history they 
 //are again presented with current and future conditions for that city
+
+
+{/* <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div> */}
