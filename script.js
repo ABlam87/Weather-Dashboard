@@ -47,21 +47,35 @@ searchButton.on('click', function(event){
         todayBox.append(cityName, cityTemp1, cityWind1, cityHumid1);
 
         // 5 day forecast
- 
+        forecast.empty();
         dataArray = data.list;
         console.log(dataArray)
-        
-        for (let i = 1; i < dataArray.length; i++) {
+        futuredate = dayjs().format('DD/MM/YYYY');
+
+        for (let i = 6; i < dataArray.length; i++) {
           
           var forecastCard = $('<div>');
          forecastCard.addClass("card forecastCard");
 
           var foreCastDate = $('<h5>');
 
-          foreCastDate.text('hello'); 
-          forecastCard.append(foreCastDate);
+          foreCastDate.text(dataArray[i].dt_txt);
+          
+          var forecastTemp = $('<p>');
+          var forecastWind = $('<p>');
+          var forecastHumid = $('<p>');
 
+          forecastIcon = $('<img>');
+          forecastIconURL = 'http://openweathermap.org/img/w/' + dataArray[i].weather[0].icon + '.png';
+          forecastIcon.attr('src', forecastIconURL)
+          forecastTemp.text('Temp: ' + dataArray[i].main.temp + '°C')
+          forecastHumid.text('Humidity: ' + dataArray[i].main.humidity + '%')
+          forecastWind.text('Wind: ' + dataArray[i].wind.speed + 'KPH')
+
+          forecastCard.append(foreCastDate, forecastIcon, forecastTemp, forecastWind, forecastHumid);
           forecast.append(forecastCard);
+
+          i= i+7;
         }
 
       })

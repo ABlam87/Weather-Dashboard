@@ -1803,7 +1803,7 @@ label form [type='radio'] {
 }
 
 .forecastCard {
-  width: 18%;
+  width: 150px;
   margin:10px;
   height:200px;
   background-color: lightslategray;
@@ -1811,4 +1811,12 @@ label form [type='radio'] {
   font-family: Arial, Helvetica, sans-serif;
   border: none !important;
   padding: 5px;
+}
+
+.forecastCard img {
+  width: 40px;
+}
+
+.forecastCard p {
+  font-size: 13px;
 }
