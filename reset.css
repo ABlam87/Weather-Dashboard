@@ -1820,3 +1820,7 @@ label form [type='radio'] {
 .forecastCard p {
   font-size: 13px;
 }
+
+.history-btn {
+  width: 100%;
+}
