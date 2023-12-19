@@ -176,37 +176,5 @@ $('.history-btn').on('click', function(event){
 
   )
 
-// When a user searches for a city they are presented with current and future conditions
-// for that city and that city is added to the search history
-// When a user views the current weather conditions for that city they are presented with:
-
-// The city name
-// The date
-// An icon representation of weather conditions
-// The temperature
-// The humidity
-// The wind speed
 
 
-// When a user view future weather conditions for that city 
-//they are presented with a 5-day forecast that displays:
-
-// The date
-// An icon representation of weather conditions
-// The temperature
-// The humidity
-
-
-// When a user click on a city in the search history they 
-//are again presented with current and future conditions for that city
-
-
-{/* <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div> */}
