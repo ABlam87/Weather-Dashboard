@@ -4,18 +4,26 @@ const forecast = $('#forecast');
 const searchButton = $('#search-button')
 
 date = dayjs().format('DD/M/YYYY');
-console.log(date);
-
 key = '70e92f0336c7b26ba2ec74cbf63b789c'
 
 //queryURL = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + lat + '&lon=' + lon + '&units=metric&appid=' + key
+
+// Loading Previous Search Buttons
+
+var savedSearches = JSON.parse(localStorage.getItem("WeatherCities")) || [];
+
+for (i = 0; i < savedSearches.length; i++) {
+btn = $("<button>");
+btn.addClass("btn btn-secondary history-btn")
+btn.text(savedSearches[i]);
+searchHistory.append(btn);}
+
+// Weather Search Button
 
 searchButton.on('click', function(event){
     event.preventDefault();
 
     city = $('#search-input').val().trim();
-    console.log(city);
-
     queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&appid=' + key
 
     fetch(queryURL)
@@ -47,12 +55,12 @@ searchButton.on('click', function(event){
         todayBox.append(cityName, cityTemp1, cityWind1, cityHumid1);
 
         // 5 day forecast
+
         forecast.empty();
         dataArray = data.list;
-        console.log(dataArray)
         futuredate = dayjs().format('DD/MM/YYYY');
 
-        for (let i = 6; i < dataArray.length; i++) {
+        for (let i = 7; i < dataArray.length; i++) {
           
           var forecastCard = $('<div>');
          forecastCard.addClass("card forecastCard");
@@ -78,9 +86,26 @@ searchButton.on('click', function(event){
           i= i+7;
         }
 
+      // Create Button in history
+
+  var newButton = $('<button>');
+  newButton.text(city);
+  newButton.addClass('btn btn-secondary history-btn');
+  searchHistory.append(newButton);
+
+      // Save to Local storage
+
+  var savedSearches = JSON.parse(localStorage.getItem("WeatherCities")) || [];
+  savedSearches.push(city);
+  localStorage.setItem("WeatherCities", JSON.stringify(savedSearches))
+
       })
 
 })
+
+// Button Press of Saved City
+
+
 
 // When a user searches for a city they are presented with current and future conditions
 // for that city and that city is added to the search history
